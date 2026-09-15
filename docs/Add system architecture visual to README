@@ -1,0 +1,26 @@
+# System Architecture
+
+## Overview
+
+The Susee Finance Loan Application Automation is designed as a digital loan-entry workflow using Zoho Creator and Deluge scripting.
+
+The solution connects form submission, validation, loan number generation, EMI date calculation, maturity date calculation, and automated email notification into a single workflow.
+
+## Process Flow
+
+```text
+Business Executive
+        ↓
+Loan Application Form
+        ↓
+Form Validation
+        ↓
+System Status Check
+        ↓
+Loan Sequence Management
+        ↓
+First EMI Date Calculation
+        ↓
+Maturity Date Calculation
+        ↓
+Automated Email Notification

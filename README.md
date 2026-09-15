@@ -10,6 +10,9 @@ This project demonstrates the design and automation of a digital loan applicatio
 
 The solution was developed to reduce manual processing in loan operations and provide a structured workflow for branch executives.
 
+### System Architecture
+
+![Susee Finance Loan Application Automation - System Architecture](docs/images/loan-application-automation-architecture.png)
 ---
 
 ## 🎯 Business Problem

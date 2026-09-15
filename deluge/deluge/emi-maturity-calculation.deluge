@@ -1,0 +1,57 @@
+// =========================================
+// GET APPLICATION DATE
+// =========================================
+loanDate = input.Application_Date;
+
+// =========================================
+// CALCULATE FIRST EMI DATE
+// =========================================
+// Applications on or before 15th
+// → EMI in next month
+//
+// Applications after 15th
+// → EMI in the month after next
+// =========================================
+
+if(loanDate.getDay() <= 15)
+{
+	firstEmiDate = loanDate.addMonth(1);
+}
+else
+{
+	firstEmiDate = loanDate.addMonth(2);
+}
+
+// EMI date = 5th of the calculated month
+firstEmiDate = firstEmiDate.toStartOfMonth().addDay(4);
+
+// =========================================
+// SAVE FIRST EMI DATE
+// =========================================
+input.First_EMI_Date = firstEmiDate;
+
+// =========================================
+// GET LOAN TENURE
+// Example:
+// "6 Months" → 6
+// "12 Months" → 12
+// =========================================
+
+tenureText = input.Loan_Tenure.toString();
+tenureText = tenureText.replaceAll(" Months","");
+tenure = tenureText.toLong();
+
+// =========================================
+// CALCULATE MATURITY DATE
+// =========================================
+
+maturityDate = firstEmiDate.addMonth(tenure - 1);
+
+// Maturity date = 5th of the calculated month
+maturityDate = maturityDate.toStartOfMonth().addDay(4);
+
+// =========================================
+// SAVE MATURITY DATE
+// =========================================
+
+input.Maturity_Date = maturityDate;

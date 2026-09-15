@@ -1,0 +1,44 @@
+// =========================================
+// GET LOAN TYPE
+// =========================================
+loanType = input.Loan_Type;
+
+// =========================================
+// FIND SEQUENCE RECORD
+// =========================================
+sequenceRecord = Loan_Sequence[Loan_Type == loanType];
+
+// =========================================
+// CHECK SEQUENCE RECORD
+// =========================================
+if(sequenceRecord.count() == 0)
+{
+	info "Loan sequence not found for: " + loanType;
+}
+else
+{
+	// =====================================
+	// GET CURRENT SEQUENCE
+	// =====================================
+	currentSequence = sequenceRecord.Current_Sequence;
+
+	// =====================================
+	// INCREMENT SEQUENCE
+	// =====================================
+	nextSequence = currentSequence + 1;
+
+	// =====================================
+	// UPDATE SEQUENCE TABLE
+	// =====================================
+	sequenceRecord.Current_Sequence = nextSequence;
+
+	// =====================================
+	// CREATE LOAN NUMBER
+	// =====================================
+	loanNumber = nextSequence.toString();
+
+	// =====================================
+	// STORE LOAN NUMBER
+	// =====================================
+	input.Loan_Number = loanNumber;
+}

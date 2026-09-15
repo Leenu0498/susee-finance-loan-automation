@@ -1,0 +1,28 @@
+// =========================================
+// CHECK APPLICATION SYSTEM STATUS
+// =========================================
+
+// Get the active control record
+controlRecord = Control[ID != null];
+
+// =========================================
+// CHECK WHETHER CONTROL RECORD EXISTS
+// =========================================
+
+if(controlRecord.count() == 0)
+{
+	alert "Loan Application is currently unavailable. Please contact Head Office.";
+	cancel submit;
+}
+else
+{
+	// =====================================
+	// CHECK SYSTEM STATUS
+	// =====================================
+
+	if(controlRecord.System_Status != "OPEN")
+	{
+		alert "Loan Application is currently closed. Please contact Head Office.";
+		cancel submit;
+	}
+}
